@@ -2,7 +2,64 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Tool to assist add content to heroes manual.">
-        <title>Quiz Content Tool</title>
+        <meta name="description" content="Tool to assist adding content to heroes manual.">
+        <title>Quizzes Content Tool</title>
+        <script src="training.js"></script>
+        <link rel="stylesheet" href="./css/training.css">
     </head>
+    <body>
+        <div class="site">
+            <div id="summary-bar">
+                <div class="padding list-layout">
+                    Title: <input id="txt_title" type="text">
+                    Summary: <textarea id="txt_summary" title="Summary"></textarea>
+                </div>
+            </div>
+            <div id="list-col">
+                <div class="padding list-layout">
+                    <div class="list-item">
+                        Test Lesson
+                    </div>
+                    <div class="list-item">
+                        Test Lesson
+                    </div>
+                </div>
+            </div>
+            <div id="number-col">
+                <div class="padding list-layout">
+                    <div class="list-item selected">
+                        Test Lesson
+                    </div>
+                    <div class="list-item">
+                        Test Lesson
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div class="padding list-layout">
+                    <div class="align-left padding">
+                        Card Text: <textarea id="txt_card" title="Card Text"></textarea>
+                    </div>
+                    <div class="align-left padding">
+                        Source Text: <textarea id="txt_source" title="Source Text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div id="btn1">
+                <div class="padding text-align bold">
+                    Add Training
+                </div>
+            </div>
+            <div id="btn2">
+                <div class="padding text-align bold">
+                    Add Card
+                </div>
+            </div>
+            <div id="btn3">
+                <div class="padding text-align bold">
+                    Save
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
