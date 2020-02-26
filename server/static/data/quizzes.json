@@ -1,0 +1,22 @@
+{
+    "Quiz name goes here":
+    {
+      "questions":
+      [
+        {
+          "text": "Question goes here.",
+          "type": "mc",
+          "options":
+          [
+            "Choice 1",
+            "Choice 2",
+            "Choice 3",
+            "Choice 4"
+          ],
+          "correct": "Choice 1",
+          "info": "This is the explaination of the correct answer."
+        }
+      ],
+      "summary": "Summary of the quiz goes here."
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Tool to assist adding content to heroes manual.">
+        <title>Training Content Tool</title>
+        <script src="./static/js/training.js"></script>
+        <link rel="stylesheet" href="./static/css/training.css">
+        <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./static/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="site">
+            <div id="summary-bar">
+                <div class="padding list-layout">
+                    Title: <input id="txt_title" type="text">
+                    Summary: <textarea id="txt_summary" title="Summary"></textarea>
+                </div>
+            </div>
+            <div id="list-col">
+                <div class="padding list-layout">
+                    <div class="list-item">
+                        Test Lesson
+                    </div>
+                    <div class="list-item">
+                        Test Lesson
+                    </div>
+                </div>
+            </div>
+            <div id="number-col">
+                <div class="padding list-layout">
+                    <div class="list-item selected">
+                        <div class="row">
+                            <div class="name">
+                                Test Lesson
+                            </div>
+                            <div class="del-btn">
+                                X
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="row">
+                            <div class="name">
+                                Test Lesson
+                            </div>
+                            <div class="del-btn">
+                                X
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div class="padding list-layout">
+                    <div class="align-left padding">
+                        Card Text: <textarea id="txt_card" title="Card Text"></textarea>
+                    </div>
+                    <div class="align-left padding">
+                        Source Text: <textarea id="txt_source" title="Source Text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div id="btn1">
+                <div class="padding text-align bold">
+                    Add Training
+                </div>
+            </div>
+            <div id="btn2">
+                <div class="padding text-align bold">
+                    Add Card
+                </div>
+            </div>
+            <div id="btn3">
+                <div class="padding text-align bold">
+                    Save
+                </div>
+            </div>
+        </div>
+        <div class="text-align">
+            <a href="./index.html">Back Home</a>
+        </div>
+    </body>
+</html>
