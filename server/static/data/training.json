@@ -1,6 +1,7 @@
 {
-    "Training name goes here.":
+  "trainings": [
     {
+      "title": "Training name goes here.",
       "cards":
       [
         {
@@ -10,4 +11,5 @@
       ],
       "summary": "Summary goes here."
     }
+  ]
 }

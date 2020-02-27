@@ -1,6 +1,7 @@
 {
-    "Quiz name goes here":
+  "quizzes": [
     {
+      "title": "Quiz name goes here",
       "questions":
       [
         {
@@ -19,4 +20,5 @@
       ],
       "summary": "Summary of the quiz goes here."
     }
+  ]
 }

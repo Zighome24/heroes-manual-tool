@@ -1,13 +1,11 @@
 {
-    "Training name goes here.":
+  "title": "Training name goes here.",
+  "cards":
+  [
     {
-      "cards":
-      [
-        {
-          "text": "Text goes here",
-          "source": "Source goes here"
-        }
-      ],
-      "summary": "Summary goes here."
+      "text": "Text goes here",
+      "source": "Source goes here"
     }
+  ],
+  "summary": "Summary goes here."
 }
