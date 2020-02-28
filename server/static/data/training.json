@@ -1,15 +1,1 @@
-{
-  "trainings": [
-    {
-      "title": "Training name goes here.",
-      "cards":
-      [
-        {
-          "text": "Text goes here",
-          "source": "Source goes here"
-        }
-      ],
-      "summary": "Summary goes here."
-    }
-  ]
-}
+{"trainings": [{"cards": [{"source": "Source goes here2", "text": "Text goes here1"}], "title": "Training name goes here for training #2", "summary": "Summary goes here for training #2."}, {"cards": [{"source": "Source goes here 1", "text": "Text goes here 1"}, {"source": "Source goes here 4", "text": "Text goes here 4"}], "title": "Training name goes here3", "summary": "Summary goes here3"}, {"cards": [{"source": "Source goes here 4-13 3", "text": "Text goes here 4-1"}], "title": "Training name goes here.4", "summary": "Summary goes here.4"}]}

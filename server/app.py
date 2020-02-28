@@ -32,7 +32,6 @@ def trainingJ():
         content = json.loads(f.read())
         print(content)
         return jsonify(content)
-
     return {
         "status" : "bad"
     }
