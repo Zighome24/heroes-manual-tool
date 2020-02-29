@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <meta name="description" content="Tool to assist adding content to heroes manual.">
         <title>Quizzes Content Tool</title>
-        <script src="quizzes.js"></script>
-        <link rel="stylesheet" href="./css/quizzes.css">
+        <link rel="stylesheet" href="./static/css/application.css">
+        <link rel="stylesheet" href="./static/css/quizzes.css">
+        <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./static/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <div class="site">
@@ -13,32 +15,44 @@
                 <div class="padding list-layout">
                     Title: <input id="txt_title" type="text">
                     Summary: <textarea id="txt_summary" title="Summary"></textarea>
+                    Sources: <textarea id="txt_sources" title="Sources"></textarea>
                 </div>
             </div>
             <div id="list-col">
                 <div class="padding list-layout">
-                    <div class="list-item">
-                        Test Lesson
-                    </div>
-                    <div class="list-item">
-                        Test Lesson
-                    </div>
                 </div>
             </div>
             <div id="number-col">
                 <div class="padding list-layout">
-                    <div class="list-item selected">
-                        Test Lesson
-                    </div>
                 </div>
             </div>
             <div id="content">
                 <div class="padding list-layout">
                     <div class="align-left padding">
-                        Card Text: <textarea id="txt_card" title="Card Text"></textarea>
+                        Question Text: <textarea id="txt_question" title="Question Text"></textarea>
                     </div>
                     <div class="align-left padding">
-                        Source Text: <textarea id="txt_source" title="Source Text"></textarea>
+                        Info Text: <textarea id="txt_info" title="Info Text"></textarea>
+                    </div>
+                    <div class="row">
+                        <input type="radio" name="type" value="mc">Multiple Choice</input>
+                        <input type="radio" name="type" value="f">Fill In the Blank</input>
+                    </div>
+                    <div id="mc">
+                        <input type="radio" name="mc" id="choice1">
+                        <input type="text" id="txt_choice1">
+                        <br>
+                        <input type="radio" name="mc" id="choice2">
+                        <input type="text" id="txt_choice2">
+                        <br>
+                        <input type="radio" name="mc" id="choice3">
+                        <input type="text" id="txt_choice3">
+                        <br>
+                        <input type="radio" name="mc" id="choice4">
+                        <input type="text" id="txt_choice4">
+                    </div>
+                    <div id="f">
+                        Correct: <input type="text" id="txt_correct">
                     </div>
                 </div>
             </div>
@@ -59,7 +73,8 @@
             </div>
         </div>
         <div class="text-align">
-            <a href="./index.html">Back Home</a>
+            <a href="./">Back Home</a>
         </div>
+        <script src="./static/js/quizzes.js"></script>
     </body>
 </html>

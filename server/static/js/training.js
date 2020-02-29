@@ -85,7 +85,7 @@ function createCardElement(card, title, index) {
     }
     // main element
     const element = document.createElement("div");
-    element.classList.add("list-item", "row", "card");
+    element.classList.add("list-item", "row");
     element.onclick = function() {
         resetCardInfo(this, card);
     }
@@ -94,9 +94,14 @@ function createCardElement(card, title, index) {
     return element;
 }
 
-function removeCards() {
-    console.log("remove cards");
-    document.querySelectorAll(".card").forEach(element => element.remove());
+function clearTrainingInfo() {
+    console.log("Clear Training Info");
+    const titleTxt = document.getElementById("txt_title");
+    const summaryTxt = document.getElementById("txt_summary");
+    titleTxt.value = "";
+    summaryTxt.value = "";
+    titleTxt.onchange = null;
+    summaryTxt.onchange = null;
 }
 
 function resetTrainingInfo(element, training) {
@@ -146,10 +151,12 @@ function createTrainingElement(training) {
             });
             numberCol.innerHTML = "";
             listCol.innerHTML = "";
+
             trainings.forEach((training) => {
                 createTrainingElement(training);
             });
             clearCardInfo();
+            clearTrainingInfo();
             save();
         }
     }
@@ -185,7 +192,7 @@ document.getElementById("btn2").onclick = function() {
     const empty_card = {
         "text": "Text goes here",
         "source": "Source goes here"
-    }
+    };
     if (current_training != null) {
         current_training['cards'].push(empty_card)
         const elem = createCardElement(
