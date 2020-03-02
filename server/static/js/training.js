@@ -36,15 +36,9 @@ function resetCardInfo(element, card) {
     element.classList.add("selected");
     // set text box things
     const cardTxt = document.getElementById("txt_card");
-    const sourceTxt = document.getElementById("txt_source");
     cardTxt.value = card["text"];
-    sourceTxt.value = card["source"];
     cardTxt.onchange = function(e) {
         card["text"] = e.target.value;
-        save();
-    }
-    sourceTxt.onchange = function(e) {
-        card["source"] = e.target.value;
         save();
     }
     save();
@@ -53,11 +47,8 @@ function resetCardInfo(element, card) {
 function clearCardInfo() {
     console.log("Clear Card info");
     const cardTxt = document.getElementById("txt_card");
-    const sourceTxt = document.getElementById("txt_source");
     cardTxt.value = "";
-    sourceTxt.value = "";
     cardTxt.onchange = null;
-    sourceTxt.onchange = null;
 }
 
 function createCardElement(card, title, index) {
@@ -73,7 +64,7 @@ function createCardElement(card, title, index) {
         if (confirm(`Are you sure you want to delete card \#${index}`)) {
             element.onclick = null;
             current_training["cards"] = current_training["cards"].filter((crd) => {
-                return !(crd["text"] == card["text"] && crd["source"] == card["source"]);
+                return !(crd["text"] == card["text"]);
             });
             save();
             numberCol.innerHTML = "";
@@ -98,10 +89,13 @@ function clearTrainingInfo() {
     console.log("Clear Training Info");
     const titleTxt = document.getElementById("txt_title");
     const summaryTxt = document.getElementById("txt_summary");
+    const sourceTxt = document.getElementById("txt_sources");
     titleTxt.value = "";
     summaryTxt.value = "";
+    sourceTxt.value = "";
     titleTxt.onchange = null;
     summaryTxt.onchange = null;
+    sourceTxt.onchange = null;
 }
 
 function resetTrainingInfo(element, training) {
@@ -113,9 +107,11 @@ function resetTrainingInfo(element, training) {
     // set text box things
     const titleTxt = document.getElementById("txt_title");
     const summaryTxt = document.getElementById("txt_summary");
+    const sourceTxt = document.getElementById("txt_sources");
 
     titleTxt.value = training['title'];
     summaryTxt.value = training['summary'];
+    sourceTxt.value = training['sources'];
 
     titleTxt.onchange = function(e) {
         training["title"] = e.target.value;
@@ -123,6 +119,10 @@ function resetTrainingInfo(element, training) {
     };
     summaryTxt.onchange = function(e) {
         training["summary"] = e.target.value;
+        save();
+    };
+    sourceTxt.onchange = function(e) {
+        training["sources"] = e.target.value;
         save();
     };
     // do it for cards
