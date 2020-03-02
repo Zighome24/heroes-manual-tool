@@ -22,7 +22,7 @@ async function save() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "trainings": trainings
+            "quizzes": quizzes
         })
     });
 
@@ -31,36 +31,149 @@ async function save() {
 
 function clearQuestionInfo() {
     console.log("Clear Card info");
-    /*
-    const cardTxt = document.getElementById("txt_card");
-    const sourceTxt = document.getElementById("txt_source");
-    cardTxt.value = "";
-    sourceTxt.value = "";
-    cardTxt.onchange = null;
-    sourceTxt.onchange = null;
-    */
+    const questionTxt = document.getElementById("txt_question");
+    const infoTxt = document.getElementById("txt_info");
+    const radioMC = document.getElementById("radio_mc");
+    const radioF = document.getElementById("radio_f");
+    const correctTxt = document.getElementById("txt_correct");
+    // clear text, hide mc and f
+    questionTxt.value = "";
+    infoTxt.value = "";
+    radioMC.checked = false;
+    radioF.checked = false;
+    correctTxt.value = false;
+
+    questionTxt.onchange = null;
+    infoTxt.onchange = null;
+    radioMC.onclick = null;
+    radioF.onclick = null;
+    correctTxt.onchange = null;
+
+    document.getElementById("mc").classList.add("hidden");
+    document.getElementById("f").classList.add("hidden");
 }
 
-function resetQuestionInfo(element, card) {
+function addMCStuff(question) {
+    const rCh1 = document.getElementById("choice1");
+    const tCh1 = document.getElementById("txt_choice1");
+    const rCh2 = document.getElementById("choice2");
+    const tCh2 = document.getElementById("txt_choice2");
+    const rCh3 = document.getElementById("choice3");
+    const tCh3 = document.getElementById("txt_choice3");
+    const rCh4 = document.getElementById("choice4");
+    const tCh4 = document.getElementById("txt_choice4");
+
+    tCh1.value = question["options"][0];
+    rCh1.checked = (question["options"][0] == question["correct"]);
+
+    tCh2.value = question["options"][1];
+    rCh2.checked = (question["options"][1] == question["correct"]);
+
+    tCh3.value = question["options"][2];
+    rCh3.checked = (question["options"][2] == question["correct"]);
+
+    tCh4.value = question["options"][3];
+    rCh4.checked = (question["options"][3] == question["correct"]);
+    
+    rCh1.onclick = function() {
+        question["correct"] = tCh1.value;
+        save();
+    };
+    tCh1.onchange = function(e) {
+        question["options"][0] = e.target.value;
+        save();
+    }
+
+    rCh2.onclick = function() {
+        question["correct"] = tCh2.value;
+        save();
+    };
+    tCh2.onchange = function(e) {
+        question["options"][1] = e.target.value;
+        save();
+    }
+
+    rCh3.onclick = function() {
+        question["correct"] = tCh3.value;
+        save();
+    };
+    tCh3.onchange = function(e) {
+        question["options"][2] = e.target.value;
+        save();
+    }
+
+    rCh4.onclick = function() {
+        question["correct"] = tCh4.value;
+        save();
+    };
+    tCh4.onchange = function(e) {
+        question["options"][3] = e.target.value;
+        save();
+    }
+}
+
+function resetQuestionInfo(element, question) {
     const temp = document.querySelector("#number-col .selected");
     if (temp != null) { temp.classList.remove("selected"); }
     //set selected
     element.classList.add("selected");
     // set text box things
-    /*
-    const cardTxt = document.getElementById("txt_card");
-    const sourceTxt = document.getElementById("txt_source");
-    cardTxt.value = card["text"];
-    sourceTxt.value = card["source"];
-    cardTxt.onchange = function(e) {
-        card["text"] = e.target.value;
+    const questionTxt = document.getElementById("txt_question");
+    const infoTxt = document.getElementById("txt_info");
+    const radioMC = document.getElementById("radio_mc");
+    const radioF = document.getElementById("radio_f");
+    const correctTxt = document.getElementById("txt_correct");
+    questionTxt.value = question["text"];
+    infoTxt.value = question["info"];
+    correctTxt.value = question["correct"];
+    questionTxt.onchange = function(e) {
+        question["text"] = e.target.value;
         save();
-    }
-    sourceTxt.onchange = function(e) {
-        card["source"] = e.target.value;
+    };
+    infoTxt.onchange = function(e) {
+        question["info"] = e.target.value;
         save();
+    };
+    correctTxt.onchange = function(e) {
+        question["correct"] = e.target.value;
+        save();
+    };
+
+    addMCStuff(question);
+
+    switch (question["type"]) {
+        case "mc":
+            radioMC.checked = true;
+            radioF.checked = false;
+            document.getElementById("mc").classList.remove("hidden");
+            document.getElementById("f").classList.add("hidden");
+            break;
+        case "f":
+            radioMC.checked = false;
+            radioF.checked = true;
+            document.getElementById("mc").classList.add("hidden");
+            document.getElementById("f").classList.remove("hidden");
+            break;
     }
-    */
+    radioF.onclick = function() {
+        document.getElementById("mc").classList.add("hidden");
+        document.getElementById("f").classList.remove("hidden");
+        question["type"] = "f";
+        if (question["correct"] != correctTxt.value) {
+            question["correct"] = correctTxt.value;
+        }
+        save();
+    };
+    radioMC.onclick = function() {
+        document.getElementById("mc").classList.remove("hidden");
+        document.getElementById("f").classList.add("hidden");
+        question["type"] = "mc";
+        if (!question["options"].includes(question["correct"])) {
+            question["correct"] = question["options"][0];
+            document.getElementById("choice1").checked = true;
+        }
+        save();
+    };
     save();
 }
 
@@ -250,7 +363,7 @@ document.getElementById("btn3").onclick = function() {
 getJSON().then((data) => {
     console.log(data['quizzes']);
     quizzes = data['quizzes'];
-    /*quizzes.forEach((quiz) => {
+    quizzes.forEach((quiz) => {
         createQuizElement(quiz);
-    });*/
+    });
 });

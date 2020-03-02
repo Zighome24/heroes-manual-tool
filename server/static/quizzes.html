@@ -35,35 +35,40 @@
                         Info Text: <textarea id="txt_info" title="Info Text"></textarea>
                     </div>
                     <div class="row">
-                        <input type="radio" name="type" value="mc">Multiple Choice</input>
-                        <input type="radio" name="type" value="f">Fill In the Blank</input>
+                        <input type="radio" name="type" value="mc" id="radio_mc">Multiple Choice</input>
+                        <input type="radio" name="type" value="f" id="radio_f">Fill In the Blank</input>
                     </div>
-                    <div id="mc">
-                        <input type="radio" name="mc" id="choice1">
-                        <input type="text" id="txt_choice1">
-                        <br>
-                        <input type="radio" name="mc" id="choice2">
-                        <input type="text" id="txt_choice2">
-                        <br>
-                        <input type="radio" name="mc" id="choice3">
-                        <input type="text" id="txt_choice3">
-                        <br>
-                        <input type="radio" name="mc" id="choice4">
-                        <input type="text" id="txt_choice4">
+                    <div id="mc" class="list-layout hidden">
+                        <div>
+                            <input type="radio" name="mc" id="choice1">
+                            <input type="text" id="txt_choice1">
+                        </div>
+                        <div>
+                            <input type="radio" name="mc" id="choice2">
+                            <input type="text" id="txt_choice2">
+                        </div>
+                        <div>
+                            <input type="radio" name="mc" id="choice3">
+                            <input type="text" id="txt_choice3">
+                        </div>
+                        <div>
+                            <input type="radio" name="mc" id="choice4">
+                            <input type="text" id="txt_choice4">
+                        </div>
                     </div>
-                    <div id="f">
+                    <div id="f" class="hidden">
                         Correct: <input type="text" id="txt_correct">
                     </div>
                 </div>
             </div>
             <div id="btn1">
                 <div class="padding text-align bold">
-                    Add Training
+                    Add Quiz
                 </div>
             </div>
             <div id="btn2">
                 <div class="padding text-align bold">
-                    Add Card
+                    Add Question
                 </div>
             </div>
             <div id="btn3">

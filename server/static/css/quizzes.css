@@ -2,9 +2,13 @@
     margin: 20px;
 }
 
-#f > input {
+input[type=text] {
     margin-top: 20px;
     width: 400px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .row > input {

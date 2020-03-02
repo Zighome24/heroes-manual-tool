@@ -43,7 +43,11 @@ body {
 
 #txt_summary {
     width: 600px;
-    height: 150px;
+    height: 85px;
+}
+
+#txt_sources {
+    width: 600px;
 }
 
 /*---------------------------------------------------*/
